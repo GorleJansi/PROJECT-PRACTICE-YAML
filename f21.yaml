@@ -1,0 +1,25 @@
+--- 
+- name: functions in ansible
+  hosts: man
+  become: true
+  vars:
+    list1: [1,2,3]
+    list2: [3,6,1]
+    list3: [1,4,9,3,4,9]
+  tasks:
+    - name: list functions
+      debug:
+        msg: "first element in list {{ list1 }}: {{ list1 | first }}"
+    - name: list functions
+      debug:
+        msg: "last element in list {{ list1 }}: {{ list1 | last }}"  
+    - name: list functions
+      debug:
+        msg: "length of list {{ list3 }}: {{ list3 | length }}"
+    - name: list functions
+      debug:
+        msg: "sort  elements of {{ lsit3 }} : {{ list3 | sort }}"            
+    - name: list functions
+      debug:
+        msg: "unique elements of {{ lsit3 }} : {{ list3 | unique }}"                  
+     
