@@ -1,0 +1,13 @@
+---
+- name: create user if not exist
+  hosts: man
+  become: true
+  tasks:
+    - name: check if user exists
+      command: id roboshop
+      register: user_op
+      ignore_errors: true
+    - name: check the output of id command
+      debug:
+        var: user_op
+          
