@@ -3,13 +3,14 @@
   hosts: man
   become: true
   tasks:
-    -  name: "install package {{ pkg-sql }}"
-       dnf:
-        name: "{{ pkg-sql }}"
+    - name: "install package {{ pkg_sql }}"
+      ansible.builtin.dnf:
+        name: "{{ pkg_sql }}"
         state: present
-    - name: "servie start and enable"
-      service:
-        name: "{{ service-sql }}"
+
+    - name: "service start and enable"
+      ansible.builtin.service:
+        name: "{{ service_sql }}"
         state: started
         enabled: true
             
