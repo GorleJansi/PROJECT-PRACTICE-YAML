@@ -1,0 +1,17 @@
+---
+- name: Create user only if user does not exist.
+  hosts: man
+  become: true
+  tasks: 
+    - name: check user exists or not
+      command: id ansi
+      register: user_op
+      ignore_errors: true
+    - name: check the regitser output to 
+      debug:
+        var: user_op
+    - name: install user if not exist
+      user:
+        name: ansi
+        state: present
+      when: user_op.rc!=0        
