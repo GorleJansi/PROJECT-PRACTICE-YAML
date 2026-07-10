@@ -5,10 +5,9 @@
   tasks:
     - name: install packages
       package:
-         name: {{ item }}
+         name: "{{ item }}"
          state: present
       loop:
         - nginx
         - git
         - tree
-           
