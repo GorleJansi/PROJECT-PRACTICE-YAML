@@ -4,15 +4,16 @@
   become: true
   tasks:
     - name: check if user exists
-      command: id roboshop
+      ansible.builtin.command: id roboshop
       register: user_op
       ignore_errors: true
+      changed_when: false
     # - name: check the output of id command
     #   debug:
     #     var: user_op
     - name: create user if not exist    
-      user:
+      ansible.builtin.user:
         name: roboshop
         shell: /bin/sh
-      when: 'no such user' not in user_op.stderr  
-
+        state: present
+      when: user_op.rc != 0
