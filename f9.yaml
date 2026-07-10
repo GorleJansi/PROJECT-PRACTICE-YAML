@@ -1,0 +1,7 @@
+---
+- name: Use inventory variables.
+  hosts: man
+  tasks:
+    - name: set varaible in inventory file
+      debug:
+       var: app_name
