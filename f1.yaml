@@ -1,6 +1,7 @@
 ---
 - name: install nginx 
   hosts: man
+  become: true
   tasks:
       - name: installing nginx
         ansible.builtin.dnf:
@@ -11,4 +12,4 @@
         ansible.builtin.service:
           name: nginx
           state: started
-          
+
