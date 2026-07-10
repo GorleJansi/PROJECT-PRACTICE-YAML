@@ -1,0 +1,15 @@
+--- 
+- name: "Install and start {{ pkg }} using play-level variables."
+  hosts: man
+  become: true
+  vars:
+    pkg: httpd
+  tasks:
+     - name: "install {{ pkg }}"
+       dnf:
+         name: "{{ pkg }}"
+         state: present
+     - name: "start {{ pkg }}""
+       service:
+         name: "{{ pkg }}"   
+         state: started
