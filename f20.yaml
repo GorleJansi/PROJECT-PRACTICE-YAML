@@ -3,11 +3,16 @@
   hosts: man
   become: true
   tasks:
-    - name: install nginx
+    - name: install Apache 
       dnf:
-       name: nginx
+       name: Apache 
        state: present
-      register: nginx_op
-    - name: check nginx_op
+      register: Apache_op
+    - name: check Apache_op
       debug:
-       var: nginx_op
+       var: Apache_op
+    - name: start service only if changed is true   
+      service:
+        name: Apache 
+        state: restart
+      when: Apache_op.changed == True  
