@@ -4,6 +4,19 @@
   hosts: man
   gather_facts: true
   tasks:
-     - name: see what facts are collected from managed nodes
-       ansible.builtin.debug:
-         msg: ansible_facts
+    - name: print hostname
+      ansible.builtin.debug:
+          msg: "Hostname is {{ ansible_facts['hostname'] }}"
+    - name: print os name
+      ansible.builtin.debug:
+          msg: "os name is {{ ansible_facts['os_family'] }}"
+    - name: print distribution
+      ansible.builtin.debug:
+         msg: "Distribution is {{ ansible_facts['distribution'] }}"  
+     - name: print architecture
+      ansible.builtin.debug:
+        msg: "Architecture is {{ ansible_facts['architecture'] }}"         
+
+
+
+# gather_facts: true collects system details from managed nodes before tasks start. Then you access them using ansible_facts[...].        
