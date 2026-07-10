@@ -4,4 +4,4 @@
   tasks:
     - name: set varaible in inventory file
       debug:
-       var: app_name
+       msg: "app name is {{ app_name }}"
