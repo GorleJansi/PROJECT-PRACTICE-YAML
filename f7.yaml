@@ -3,7 +3,7 @@
   hosts: man
   become: true
   vars:
-    pkg: httpd
+    pkg: maven
   tasks:
      - name: "install {{ pkg }}"
        dnf:
