@@ -1,2 +1,2 @@
-pkg_sql: mysql-server
-service_sql: mysqld
+pkg_name: nginx
+service_name: nginx
