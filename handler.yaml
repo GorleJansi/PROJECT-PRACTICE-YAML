@@ -1,0 +1,26 @@
+---
+- name: install nginx,restart then status check
+  hosts: man
+  become: true
+  tasks:
+    - name: install nginx
+      dnf:
+        name: nginx
+        state: present
+      notify: nginx changed
+
+  handlers:
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted
+      listen: nginx changed
+
+    - name: Gather nginx service facts
+      ansible.builtin.service_facts:
+      listen: nginx changed
+
+    - name: Display nginx service status
+      ansible.builtin.debug:
+        msg: "nginx is {{ ansible_facts.services['nginx.service'].state | default('unknown') }}"
+      listen: nginx changed
