@@ -18,8 +18,8 @@
         msg: "length of list {{ list3 }}: {{ list3 | length }}"
     - name: list functions
       debug:
-        msg: "sort  elements of {{ lsit3 }} : {{ list3 | sort }}"            
+        msg: "sort  elements of {{ list3 }} : {{ list3 | sort }}"            
     - name: list functions
       debug:
-        msg: "unique elements of {{ lsit3 }} : {{ list3 | unique }}"                  
+        msg: "unique elements of {{ list3 }} : {{ list3 | unique }}"                  
      
