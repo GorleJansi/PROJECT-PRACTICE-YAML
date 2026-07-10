@@ -7,3 +7,9 @@
     - name: get facts and check 
       debug:
         var : ansible_facts
+
+    - name: install on amazon linux only
+      dnf:
+        name: nginx
+        state: present
+      when: ansible_facts["distribution"]=="Amazon"    
