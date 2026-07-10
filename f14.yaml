@@ -1,0 +1,15 @@
+---
+- name: Create multiple directories using list of dictionaries.
+  hosts: man
+  become: true
+  tasks:
+    - name: create dict
+      file:
+        path: '/tmp/{{ item }}'
+        state: directory
+        owner: ansi
+        mode: 755
+      loop:
+        - d1
+        - d2 
+         
