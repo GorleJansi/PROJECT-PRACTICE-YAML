@@ -7,9 +7,9 @@
       command: id roboshop
       register: user_op
       ignore_errors: true
-    - name: check the output of id command
-      debug:
-        var: user_op
+    # - name: check the output of id command
+    #   debug:
+    #     var: user_op
     - name: create user if not exist    
       user:
         name: roboshop
