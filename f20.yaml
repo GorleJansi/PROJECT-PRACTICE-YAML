@@ -1,0 +1,14 @@
+---
+- name: Start service only if package install changed.
+  hosts: man
+  become: true
+  tasks:
+    - name: install nginx
+      dnf:
+       name: nginx
+       state: present
+       register: nginx_op
+    - name: check nginx_op
+      debug:
+       var: nginx_op
+          
