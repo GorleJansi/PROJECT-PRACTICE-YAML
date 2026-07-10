@@ -1,0 +1,24 @@
+--- 
+- name: functions in ansible
+  hosts: man
+  become: true
+  vars:
+   str1: "hello"
+   str2: "HELLO"
+   str3: "hello jansi"
+   str4: "hi   "
+   str5: "janis,munni"
+  tasks:
+    - name: string functions
+      debug:
+        msg: "lower to upper: {{ str1 | upper }}"
+    - name: string functions
+      debug:
+        msg: "upper to lower : {{ str2 | lower }}"  
+    - name: string functions
+      debug:
+        msg: "replace : {{ str3 | replace('jansi','world') }}"
+    - name: string functions
+      debug:
+        msg: "split : {{ str5 | split(',') }}"                  
+     
