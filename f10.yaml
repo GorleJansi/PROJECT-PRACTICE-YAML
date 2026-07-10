@@ -1,0 +1,15 @@
+---
+- name: Use group variables group_vars/all.yaml,group_vars/man.yaml
+  hosts: man
+  become: true
+  tasks:
+    -  name: "install package {{ pkg-sql }}"
+       dnf:
+        name: "{{ pkg-sql }}"
+        state: present
+    - name: "servie start and enable"
+      service:
+        name: "{{ service-sql }}"
+        state: started
+        enabled: true
+            
