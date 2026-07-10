@@ -1,0 +1,16 @@
+---
+- name: shell and command pratice
+  hosts: localhost
+  connection: local
+  tasks:
+      - name: command works directly on target 
+        ansible.built.in.command: ls -la
+        args:
+          chdir: /etc
+      - name: shell command works on shell on target
+        ansible.builtin.shell: ls -la|wc -l
+        args:
+          chdir: /var/log
+          
+
+           
