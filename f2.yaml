@@ -1,0 +1,9 @@
+--- 
+
+- name: gather facts and work on ansible_facts
+  hosts: man
+  gather_facts: true
+  tasks:
+     - name: see what facts are collected from managed nodes
+       ansible.builtin.debug:
+         msg: ansible_facts
