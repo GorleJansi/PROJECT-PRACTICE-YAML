@@ -1,0 +1,8 @@
+---
+- name: see all facts collected from managed nodes
+  hosts: man
+  gather_facts: true
+  tasks:
+    - name: ansible facts using var 
+      debug:
+        var: ansible_facts
