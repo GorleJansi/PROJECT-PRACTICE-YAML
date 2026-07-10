@@ -1,2 +1,2 @@
-pkg_sql: mysql-server
-service_sql: mysql
+pkg-sql: mysql-server
+service-sql: mysql
