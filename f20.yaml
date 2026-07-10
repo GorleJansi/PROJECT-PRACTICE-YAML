@@ -7,8 +7,7 @@
       dnf:
        name: nginx
        state: present
-       register: nginx_op
+      register: nginx_op
     - name: check nginx_op
       debug:
        var: nginx_op
-          
