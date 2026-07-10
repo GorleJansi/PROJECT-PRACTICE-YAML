@@ -1,0 +1,12 @@
+---
+- name: Start multiple services using a list.
+  hosts: man
+  become: yes
+  tasks:
+    - name: start services
+      service:
+        name: '{{ pkg }}'
+        state: started
+      loop:
+        - nginx
+        - git  
