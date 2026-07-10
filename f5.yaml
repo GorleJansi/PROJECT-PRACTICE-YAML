@@ -8,14 +8,17 @@
         args:
           chdir: /etc
         register: command_op
+        
       - name: print output of command
         debug:
          var: command_op    
+
       - name: shell command works on shell on target
         ansible.builtin.shell: ls -la|wc -l
         args:
           chdir: /var/log
-                  register: shell_op
+        register: shell_op
+
       - name: print output of shell
         debug:
          var: shell_op   
