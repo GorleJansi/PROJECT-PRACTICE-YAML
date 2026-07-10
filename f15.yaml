@@ -1,0 +1,28 @@
+--- 
+- name: Install packages using dictionary.
+  hosts: man
+  become: true
+  vars:
+    app_packages:
+        web: nginx
+        version_control: git
+        editor: vim
+  tasks:
+     - name: Install packages
+       package:
+         name: '{{ item.name }}'
+         state: present
+       loop: "{{ app_packages | dict2items }}"  
+
+
+# app_packages:
+#   web: nginx
+#   version_control: git
+#   editor: vim
+# is converted by dict2items into this list:
+# - key: web
+#   value: nginx
+# - key: version_control
+#   value: git
+# - key: editor
+#   value: vim

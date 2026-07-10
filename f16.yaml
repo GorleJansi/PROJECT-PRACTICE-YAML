@@ -1,0 +1,19 @@
+--- 
+- name: Use dictionary for package and service.
+  hosts: man
+  become: true
+  vars:
+    app:
+      package: nginx
+      service: nginx
+  tasks:
+     - name: install package
+       dnf:
+         name: "{{ app.package }}"
+         state: present
+     - name: service start
+       dnf:
+         name: "{{ app.service }}"
+         state: restarted
+
+ 
