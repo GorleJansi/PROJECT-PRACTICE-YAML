@@ -1,0 +1,9 @@
+---
+- name: Install nginx only on Amazon Linux.
+  hosts: man
+  become: true
+  gather_facts: true
+  tasks:
+    - name: get facts and check 
+      debug:
+        msg : ansible_facts
