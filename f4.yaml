@@ -1,0 +1,24 @@
+
+---
+- name: practice setup module
+  hosts: man
+  gather_facts: false
+  tasks:
+    - name: collect facts manually using setup module
+      ansible.builtin.setup:
+
+    - name: show collected facts
+      ansible.builtin.debug:
+        var: ansible_facts
+
+
+# gather_facts: true
+# --> Ansible automatically runs setup before tasks.
+# gather_facts: false
+# --> Ansible will not collect facts unless you manually run:
+# ansible.builtin.setup:
+
+
+# ansible -i inventory.ini 3.85.237.223 -m setup
+# ansible -i inventory.ini man -m setup -a "filter=ansible_distribution"
+# ansible -i inventory.ini man -m setup -a "filter=ansible_hostname"
