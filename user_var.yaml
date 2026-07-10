@@ -1,0 +1,3 @@
+name = jansi
+shell = sbin/nologin
+comment = "jansi user"

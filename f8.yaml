@@ -1,0 +1,13 @@
+- name: Create a Linux user using variables.
+  hosts: man
+  become: true
+  vars_files:
+     - user_var.yaml
+  tasks:
+    - name: creating user varaible
+      user:
+       name: "{{ name }}"
+       shell: "{{ shell }}" 
+       comment: "{{ comment }}"
+       state: present
+       
