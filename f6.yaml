@@ -14,5 +14,5 @@
       user:
         name: roboshop
         shell: /bin/sh
-      when: 'no such user' not in stderr  
+      when: 'no such user' not in user_op.stderr  
 
