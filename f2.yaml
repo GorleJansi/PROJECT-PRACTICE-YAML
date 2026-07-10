@@ -13,7 +13,7 @@
     - name: print distribution
       ansible.builtin.debug:
          msg: "Distribution is {{ ansible_facts['distribution'] }}"  
-     - name: print architecture
+    - name: print architecture
       ansible.builtin.debug:
         msg: "Architecture is {{ ansible_facts['architecture'] }}"         
 
